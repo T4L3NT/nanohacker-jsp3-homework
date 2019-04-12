@@ -1,3 +1,4 @@
+
 const funct = () => {
     $.ajax({
         url: "https://data.cityofnewyork.us/resource/a2h9-9z38.json",
@@ -10,21 +11,17 @@ const funct = () => {
         success: (data) =>{
             console.log(data);
             for(i = 0; i <= data.length; i++){
-                console.log("f");
                 let y = data[i].longitude;
                 let x = data[i].latitude;
-                $(".special").append(`
-                var marker = new mapboxgl.Marker()
-                .setLngLat([30.5, 50.5])
+                console.log(x);
+                console.log(y);
+                const marker = new mapboxgl.Marker()
+                .setLngLat([x, y])
                 .addTo(map);
-                });
-                    `);
-                    console.log(x);
-                    console.log(y);
+                }
                 }
 
-            }
-        })
-    }
+            })
+        }
 
 funct();
